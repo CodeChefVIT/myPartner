@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'clubsnchap',
     'placestovisit',
     'favfood',
-    'bikerent'
+    'bikerent',
+    'netflix',
+    'jwtaccounts'
 ]
 
 MIDDLEWARE = [
