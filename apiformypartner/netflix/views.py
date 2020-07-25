@@ -3,21 +3,21 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import viewsets,permissions
 from rest_framework import generics
-from .models import Rest_favfood
+from .models import Netflix
 from rest_framework.views import APIView
-from .serializers import RestnfoodSerializer
+from .serializers import NetflixSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth.models import Permission
 
-class RestFoodViewSet(viewsets.ModelViewSet):
+class NetflViewSet(viewsets.ModelViewSet):
     permission_classes=[
         permissions.IsAdminUser,
     ]
-    serializer_class = RestnfoodSerializer
+    serializer_class = NetflixSerializer
 
     def get_queryset(self):
-        queryset = Rest_favfood.objects.all()
+        queryset = Netflix.objects.all()
         return queryset
 
     def put(self,request,*args,**kwargs):
@@ -29,6 +29,6 @@ class RestFoodViewSet(viewsets.ModelViewSet):
     def delete(self,request,*args,**kwargs):
         return self.destroy(request,*args,**kwargs)  
 
-class RestFoodViewList(generics.ListAPIView):
-    queryset = Rest_favfood.objects.all()
-    serializer_class= RestnfoodSerializer
+class NetflViewList(generics.ListAPIView):
+    queryset = Netflix.objects.all()
+    serializer_class= NetflixSerializer
