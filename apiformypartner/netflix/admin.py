@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Rent_bike
+from .models import Netflix
 
 # Register your models here.
 
-admin.site.register(Rent_bike)
+admin.site.register(Netflix)
