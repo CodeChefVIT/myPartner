@@ -28,8 +28,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES':[
+        'rest_framework.parsers.JSONParser',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES' : [
+        'Accounts.backend.JWTUserAuthentication']
+}
 # Application definition
+AUTH_USER_MODEL = 'Accounts.User'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,14 +50,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
+    'requests',
+    'rest_framework_simplejwt',
+    'corsheaders',
     'clubsnchap',
     'placestovisit',
     'favfood',
     'bikerent',
     'netflix',
-    'jwtaccounts'
+    'Accounts'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,11 +93,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'apiformypartner.wsgi.application'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-}
+#REST_FRAMEWORK = {
+ #   'DEFAULT_AUTHENTICATION_CLASSES': (
+  #      'rest_framework.authentication.TokenAuthentication',
+   # ),
+#}'''
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
