@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.conf import settings
 import jwt, requests
 from .models import User
+from Members.models import Members
+from Members.models import Members
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, serializers
@@ -18,7 +20,7 @@ class UserRegistration(APIView):
 
         regno = request.data['regno']
         try:
-            category = User.objects.get(regno = regno).category
+            category = Members.objects.get(regno = regno).category
         except:
             return Response('Invalid Registration Number Entered', status = 403)
         serializer = self.serializer_class(data=request.data)
@@ -40,5 +42,5 @@ class UserLogin(APIView):
         serializer.is_valid(raise_exception=True)
         email = serializer.data['email']
         regno = User.objects.get(email = email).regno
-        category = User.objects.get(regno = regno).category
+        category = Members.objects.get(regno = regno).category
         return Response({"email" : serializer.data["email"],"token" : serializer.data["token"], "category" : category}, status=status.HTTP_200_OK)
