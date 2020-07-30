@@ -12,6 +12,10 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    path('bikerent/', include('bikerent.urls')),
+    path('favfood/', include('favfood.urls')),
+    path('netflix/', include('netflix.urls')),
+    path('placestovisit/', include('placestovisit.urls')),
 """
 from django.contrib import admin
 from django.urls import path,include
@@ -21,6 +25,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('clubsnchap/', include('clubsnchap.urls')),
+    path('bikerent/', include('bikerent.urls')),
+    path('netflix/', include('netflix.urls')),
+    path('placestovisit/', include('placestovisit.urls')),
+    path('favfood/', include('favfood.urls')),
 ]
 
 urlpatterns=urlpatterns+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
