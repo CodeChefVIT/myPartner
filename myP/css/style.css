@@ -43,6 +43,7 @@ body,html{
 .blackt,.sidet1,.sidet2{
     color:black;
     font-size: 20px;
+    text-align: left;
 }
 
 .sidet1{
@@ -190,15 +191,28 @@ ul{
     padding-right: 50px;
 }
 
+.ic{
+    display: inline;
+}
+
+.mediaicons{
+    padding-left: 0;
+}
+
 @media(max-width:767px){
-    .display{
+    .bg1,.bg2,.b3,.b4{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 20px;
+    }
+    .display{ 
         font-size: 50px;
     }
     .content1{
-        font-size: 25px;
+        font-size: 23px;
     }
     .content2{
-        font-size: 20px;
+        font-size: 19px;
     }
     .bigt{
         font-size: 30px;
